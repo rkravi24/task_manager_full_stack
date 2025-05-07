@@ -23,7 +23,11 @@ exports.login = async (req, res) => {
     if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ msg: "Invalid credentials" });
     }
-    req.session.user = { id: user._id, email: user.email }; 
+    req.session.user = { 
+      id: user._id, 
+      name: user.name,
+      email: user.email 
+    }; 
     res.json({ msg: "Login successful", user });
   } catch (err) {
     res.status(500).json({ msg: err.message });

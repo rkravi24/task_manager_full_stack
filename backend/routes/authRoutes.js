@@ -10,7 +10,7 @@ router.post('/logout', authController.logout);
 
 router.get('/dashboard', isAuth, (req, res) => {
   res.json({
-    msg: `Welcome to your dashboard, ${req.session.user.email}!`,
+    msg: `Welcome to your dashboard, ${req.session.user.name || 'User'}!`,
     user: req.session.user
   });
 });

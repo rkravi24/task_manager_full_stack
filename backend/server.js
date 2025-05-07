@@ -7,7 +7,6 @@ const authRoutes = require('./routes/authRoutes');
 
 //Connect to MongoDB
 connectDB();
-
 const app = express();
 
 //Middleware
@@ -20,8 +19,9 @@ app.use(cors({
   credentials: true               
 }));
 
-//Routes
+//Auth_Routes
 app.use('/auth', authRoutes);
+
 
 //Server
 const PORT = process.env.PORT || 5000;

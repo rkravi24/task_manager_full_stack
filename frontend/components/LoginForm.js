@@ -13,7 +13,6 @@ export default function LoginPage() {
     try {
       const res = await api.post('/auth/login', { email, password });
       setMsg(res.data.msg || 'Login successful!');
-      // console.log("good")
       router.push('/dashboard');
     } catch (err) {
       setMsg(err.response?.data?.msg || 'Login failed');
